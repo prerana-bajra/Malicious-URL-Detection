@@ -64,6 +64,8 @@ SVM stands for Support Vector Machine, a type of machine learning algorithm used
   
 Since the objective of the project is to classify the urls as benign, defacement, phising or malware, SVM is one of the best machine learning algorithm to use.
 
+</details>
+
 <details>
   <summary> 4. Results </summary>
 Evaluation Metric: Accuracy (the percentage of correct decisions among all correct samples)
