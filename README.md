@@ -58,26 +58,16 @@ This file consists of 651,191 URLs, out of which 428103 benign or safe URLs, 964
 
 <details>
   <summary> 3. Machine Learning </summary>
-
-The source of the dataset is https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset?resource=download
-This file consists of 651,191 URLs, out of which 428103 benign or safe URLs, 96457 defacement URLs, 94111 phishing URLs, and 32520 malware URLs. It has two columns comprising of url and a type which signifies the class of maliciousness.
-
-    **Defacement URLs** are URLs of websites that have been hacked and their content has been replaced or modified by the hacker.
-    
-    **Phishing URLs** are malicious websites that are designed to deceive users into giving sensitive information.
-    
-    **Malware URLs** are URLs that host or distribute malware, which refers to malicious software designed to harm or exploit computer systems. Malware can include viruses, Trojans, ransomware, spyware, and other types of harmful software. 
-</details>
+The machine learning model used in this project is SVM.
+  
+SVM stands for Support Vector Machine, a type of machine learning algorithm used for classification and regression analysis. It works by finding the best hyperplane that separates data points of different classes in a high-dimensional space.
+  
+Since the objective of the project is to classify the urls as benign, defacement, phising or malware, SVM is one of the best machine learning algorithm to use.
 
 <details>
   <summary> 4. Results </summary>
-
-The source of the dataset is https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset?resource=download
-This file consists of 651,191 URLs, out of which 428103 benign or safe URLs, 96457 defacement URLs, 94111 phishing URLs, and 32520 malware URLs. It has two columns comprising of url and a type which signifies the class of maliciousness.
-
-    **Defacement URLs** are URLs of websites that have been hacked and their content has been replaced or modified by the hacker.
-    
-    **Phishing URLs** are malicious websites that are designed to deceive users into giving sensitive information.
-    
-    **Malware URLs** are URLs that host or distribute malware, which refers to malicious software designed to harm or exploit computer systems. Malware can include viruses, Trojans, ransomware, spyware, and other types of harmful software. 
+Evaluation Metric: Accuracy (the percentage of correct decisions among all correct samples)
+  
+  The accuracy obtained from the model is 95.6%.
+ 
 </details>
