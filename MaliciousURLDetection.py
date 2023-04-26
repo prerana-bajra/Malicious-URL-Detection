@@ -3,15 +3,18 @@ import matplotlib
 import re
 from googlesearch import search
 from urllib.parse import urlparse
+import xgboost as xgb
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn import svm
 from sklearn import metrics
 from sklearn.preprocessing import LabelEncoder
-
+import matplotlib.pyplot as plt
 
 matplotlib.use('TkAgg')
 
-df = pd.read_csv('Dataset/malicious_phish.csv', nrows=5000)
+df = pd.read_csv('Dataset/malicious_phish.csv', nrows=20000)
 
 phishing_URLs = df[df.type == 'phishing']
 Benign_URLs = df[df.type == 'benign']
@@ -38,6 +41,8 @@ def contains_ip_address(url):
 df['use_of_ip'] = df['url'].apply(lambda i: contains_ip_address(i))
 
 
+# This feature can be extracted from the WHOIS database.
+# For a legitimate website, identity is typically part of its URL.
 def abnormal_url(url):
     hostname = urlparse(url).hostname
     hostname = str(hostname)
@@ -246,6 +251,9 @@ X = df[['use_of_ip', 'abnormal_url', 'count.', 'count-www', 'count@',
 # Target Variable
 y = df['url_type']
 
+print(df.head(3))
+
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2, shuffle=True, random_state=5)
 
 # create an SVM classifier
@@ -257,7 +265,48 @@ clf.fit(X_train, y_train)
 # predict on the test set
 y_pred = clf.predict(X_test)
 
+""" The absolute values of the coefficients are taken, since the sign of the coefficients depends on whether 
+the corresponding feature is positively or negatively correlated with the target variable. 
+Finally, the feature importances are plotted using a bar chart with the feature names on the x-axis."""
+
+importances = abs(clf.coef_)
+
+# plot the feature importances
+plt.bar(range(X.shape[1]), importances[0])
+plt.xticks(range(X.shape[1]), ['use_of_ip', 'abnormal_url', 'count.', 'count-www', 'count@',
+        'count_dir', 'count_embed_domian', 'short_url', 'count-https',
+        'count-http', 'count%', 'count?', 'count-', 'count=', 'url_length',
+        'hostname_length', 'sus_url', 'fd_length', 'count-digits',
+        'count-letters'], rotation=90)
+plt.show()
+
 # print the accuracy score of the classifier
-print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+print("SVM Accuracy:", metrics.accuracy_score(y_test, y_pred))
 
 
+# Initialize Random Forest classifier
+rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Fit the model to the training data
+rf_classifier.fit(X_train, y_train)
+
+# Predict on the test data
+y_pred = rf_classifier.predict(X_test)
+
+# Evaluate model performance
+accuracy = rf_classifier.score(X_test, y_test)
+print("Random Forest accuracy:", accuracy)
+
+
+# Initialize XGBoost classifier
+xgb_classifier = xgb.XGBClassifier(learning_rate=0.1, max_depth=3, n_estimators=100)
+
+# Fit the model to the training data
+xgb_classifier.fit(X_train, y_train)
+
+# Predict on the test data
+y_pred_xgb = xgb_classifier.predict(X_test)
+
+# Evaluate model performance
+accuracy = accuracy_score(y_test, y_pred_xgb)
+print("XGBoost accuracy:", accuracy)
