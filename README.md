@@ -58,11 +58,14 @@ This file consists of 651,191 URLs, out of which 428103 benign or safe URLs, 964
 
 <details>
   <summary> 3. Machine Learning </summary>
-The machine learning model used in this project is SVM.
+The machine learning model used in this project is SVM, Random Forest and XGBoost.
   
 SVM stands for Support Vector Machine, a type of machine learning algorithm used for classification and regression analysis. It works by finding the best hyperplane that separates data points of different classes in a high-dimensional space.
-  
-Since the objective of the project is to classify the urls as benign, defacement, phising or malware, SVM is one of the best machine learning algorithm to use.
+
+Random Forest which is a machine-learning algorithm used for classification, regression, and other tasks. It is an ensemble learning method that works by combining multiple decision trees to make predictions. It is resistant to overfitting, and performs well on complex datasets.
+
+XGBoost which stands for eXtreme Gradient Boosting, and it is a popular machine learning algorithm used for supervised learning tasks, such as classification and regression. XGBoost is an ensemble method that combines multiple weak prediction models, such as decision trees, to create a stronger and more accurate model. XGBoost works by iteratively training new models that correct the errors of the previous models. During each iteration, the algorithm evaluates the gradient of the loss function with respect to the current model's predictions and uses this information to update the model's parameters. This process is called gradient boosting.
+
 
 </details>
 
@@ -70,6 +73,18 @@ Since the objective of the project is to classify the urls as benign, defacement
   <summary> 4. Results </summary>
 Evaluation Metric: Accuracy (the percentage of correct decisions among all correct samples)
   
-  The accuracy obtained from the model is 95.6%.
+  The accuracy obtained from the models are: 
+  
+  SVM Accuracy: 95.73%
+  Random Forest Accuracy: 99.18%
+  XGBoost Accuracy: 97.92%
  
+</details>
+
+<details>
+  <summary> 4. Conclusion </summary>
+
+
+  The Random Forest algorithm has proven to be effective in detecting malicious URLs in the current dataset. However, there is always room for improvement. By introducing network features, we can gain a better understanding of the URLs' behavior and potentially improve the classification accuracy. Additionally, using a larger dataset can provide more data points for the model to learn from and may lead to improved performance. Embedding the model in applications for easy interface can also automate the detection process, making it more efficient and scalable for real-time monitoring. However, it is important to fine-tune the model's hyperparameters and carefully evaluate its performance on the new dataset to ensure that any new features added are relevant and informative for the classification task.
+
 </details>
