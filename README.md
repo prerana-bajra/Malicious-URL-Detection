@@ -82,7 +82,7 @@ Evaluation Metric: Accuracy (the percentage of correct decisions among all corre
 </details>
 
 <details>
-  <summary> 4. Conclusion </summary>
+  <summary> 5. Conclusion </summary>
 
 
   The Random Forest algorithm has proven to be effective in detecting malicious URLs in the current dataset. However, there is always room for improvement. By introducing network features, we can gain a better understanding of the URLs' behavior and potentially improve the classification accuracy. Additionally, using a larger dataset can provide more data points for the model to learn from and may lead to improved performance. Embedding the model in applications for easy interface can also automate the detection process, making it more efficient and scalable for real-time monitoring. However, it is important to fine-tune the model's hyperparameters and carefully evaluate its performance on the new dataset to ensure that any new features added are relevant and informative for the classification task.
