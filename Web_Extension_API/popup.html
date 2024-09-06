@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Malicious URL Predictor</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Malicious URL Predictor</h1>
+    <input type="text" id="urlInput" class="input" placeholder="Enter URL">
+    <button id="predictButton" onclick="predict()" class="button">Predict</button>
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading...</div>
+    </div>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Malicious URL Predictor",
+    "version": "1.0",
+    "permissions": ["activeTab"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_security_policy": "script-src 'self' http://localhost:5000/predict; object-src 'self'",
+    "browser_action": {
+      "default_popup": "popup.html",
+      "width": 500,
+      "height": 400,
+      "default_icon": "icon.png"
+    }
+  }
