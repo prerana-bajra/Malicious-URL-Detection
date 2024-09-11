@@ -1,5 +1,9 @@
-
+pandas
 matplotlib
-google
+re
+googlesearch
+urllib.parse
 scikit-learn
-tk
+tkinter
+flask
+flask-cors
